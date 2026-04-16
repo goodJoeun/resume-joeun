@@ -41,7 +41,7 @@ export default function Home() {
           </Section>
         </main>
 
-        <footer className="mt-20 border-t border-border pt-8 text-center text-xs text-muted">
+        <footer className="mt-20 border-t border-border pt-8 text-center text-xs text-foreground">
           <p>&copy; {new Date().getFullYear()} {profile.nameKo}</p>
         </footer>
       </div>

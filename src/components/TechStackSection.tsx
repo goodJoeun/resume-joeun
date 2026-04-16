@@ -10,7 +10,7 @@ export function TechStackSection({ items }: Props) {
       {items.map((item) => (
         <div key={item.category}>
           <h3 className="mb-2 text-base font-semibold">{item.category}</h3>
-          <p className="max-w-2xl text-sm leading-relaxed text-foreground/85">
+          <p className="max-w-2xl text-sm leading-relaxed text-foreground">
             {item.description}
           </p>
         </div>

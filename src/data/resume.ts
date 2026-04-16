@@ -12,7 +12,7 @@ export type TaskItem = {
 };
 
 export type ProjectDetail = {
-  name: string;
+  name?: string;
   period?: string;
   description?: string | string[];
   link?: { label: string; href: string };
@@ -57,7 +57,7 @@ export type EducationItem = {
 export const profile: Profile = {
   nameKo: '조은',
   intro: [
-    '저는 사용자 경험에 집착하며, "좋은 코드"로 팀 전체의 생산성을 극대화하는 프론트엔드 개발자입니다.',
+    '저는 사용자 경험에 집착하며, "좋은 코드"로 팀 전체의 생산성을 극대화하는 개발자입니다.',
     '제가 생각하는 "좋은 코드"는 우수한 사용자 경험을 전제로, 재사용성이 높고 유지보수에 적은 비용이 들며, 협업을 용이하게 하는 코드입니다.',
     '지금까지의 개발 경험은 단순히 동작하는 코드를 넘어, 협업과 사용자 경험을 중심으로 한 "좋은 코드"의 가치를 체감하게 해주었습니다.',
     '사용자들에게 더욱 신뢰할 수 있는 UX를 제공하고, 팀의 협업 효율성을 높이는 데 기여하고 싶습니다.',
@@ -78,12 +78,10 @@ export const experience: Company[] = [
     ],
     projects: [
       {
-        name: '스패로우 엔터프라이즈 제품 개발',
-        period: '2023.03 ~ 재직 중',
         description: [
           '스패로우 엔터프라이즈는 DevSecOps 구축을 도와주는 웹 기반 Application입니다.',
           '백엔드로부터 제공받는 데이터를 시각화하고 최적의 UX를 제공하고 있습니다.',
-          '또한, 디자인 시스템을 관리하고 컴포넌트 UI 테스트, E2E 테스트 자동화 구축도 진행하고 있습니다.',
+          '또한, 디자인 시스템을 관리하고 컴포넌트 UI 테스트/E2E 테스트 자동화 구축도 담당하고 있습니다',
         ],
         roles: [
           '소프트웨어 품질/보안 검증을 위한 제품의 프론트엔드 개발',
@@ -94,20 +92,20 @@ export const experience: Company[] = [
           {
             text: 'E2E 테스트 구축 및 자동화',
             subItems: [
-              'Playwright로 핵심 사용자 시나리오의 E2E 테스트 자동화 파이프라인 구축',
-              '총 220개의 테스트코드 작성 및 유지보수',
-              '수동으로 진행하던 전수 테스트 업무를 E2E 테스트로 자동화하여, 소요되는 시간을 평균 2시간 → 30분으로 75% 단축시켜 배포 생산성 향상',
-              'Cursor를 활용한 MCP 서버를 통해 테스트 코드 자동 작성 프로세스 수립',
+              'Playwright로 핵심 사용자 시나리오의 <strong>E2E 테스트 자동화 파이프라인 구축</strong>',
+              '<strong>총 220개의 테스트코드 작성 및 유지보수</strong>',
+              '수동으로 진행하던 전수 테스트 업무를 E2E 테스트로 자동화하여\n소요되는 시간을 평균 <strong>2시간 → 30분으로 75% 단축</strong>시켜 배포 생산성 향상',
+              'Cursor를 활용한 MCP 서버를 통해 <strong>테스트 코드 자동 작성 프로세스 수립</strong>',
             ],
             tech: ['TypeScript', 'Next.js', 'Playwright', 'Cursor'],
           },
           {
             text: 'App Router로의 마이그레이션',
             subItems: [
-              'Page Router로 구현됐던 제품을 App Router로 부분 마이그레이션',
-              'Emotion으로 선언된 디자인을 Tailwind CSS로 마이그레이션',
-              '초기 로딩 속도(FCP) 60% 개선 및 TBT 최적화',
-              'Cursor, Claude Agent를 활용해 30일로 책정했던 개발 기간을 2주로 단축',
+              'Page Router로 구현됐던 제품을 <strong>App Router로 부분 마이그레이션</strong>',
+              'Emotion으로 선언된 디자인을 <strong>Tailwind CSS로 마이그레이션</strong>',
+              '<strong>초기 로딩 속도(FCP) 60% 개선</strong> 및 TBT 최적화',
+              'Cursor Agent를 활용해 <strong>30일로 책정했던 개발 기간을 2주로 단축</strong>',
             ],
             tech: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'EmotionJS'],
           },
@@ -115,8 +113,8 @@ export const experience: Company[] = [
             text: 'SSO/OTP 인증 모듈 개발',
             subItems: [
               '고객사 요청사항을 만족하는 인증 모듈 개발',
-              '고객사 내부망에서 인증 모듈로 리다이렉트 요청을 보내면 백엔드 서버로부터 토큰을 발급받고, Http Header 및 토큰으로 유효성 검사 및 제품에 로그인하도록 개발',
-              'Passport.js에 각 인증 전략을 선언하고, .env에 작성된 인증 전략 flag에 따라 해당하는 인증 전략으로 리다이렉트되게 개발',
+              '고객사 내부망에서 인증 모듈로 리다이렉트 요청을 보내면 백엔드 서버로부터 토큰을 발급받고,\n<strong>Http Header 및 토큰으로 유효성 검사 및 제품 로그인</strong>하도록 개발',
+              'Passport.js에 각 인증 전략을 선언하고, .env에 작성된 인증 전략에 따라 <strong>해당 전략으로 리다이렉트</strong>되게 개발',
               '백엔드 담당자, 컨설턴트, 고객사 개발자와 협업',
             ],
             tech: ['TypeScript', 'Next.js', 'GraphQL'],
@@ -124,9 +122,9 @@ export const experience: Company[] = [
           {
             text: '파일 디렉토리 컴포넌트 개발',
             subItems: [
-              '기존 표 기반 분석 시스템을 트리 구조의 파일 디렉터리 시스템으로 개선',
-              '하위 경로 데이터는 클릭 시 API를 호출하도록 변경하여 최초 로딩 시간을 1분 → 10초 이내로 단축',
-              '비동기 데이터 로딩 방식 적용 및 Skeleton UI 추가로 사용자 경험 향상',
+              '기존 표 기반 분석 시스템을 <strong>트리 구조의 파일 디렉터리 시스템으로 개선</strong>',
+              '하위 경로 데이터는 클릭 시 API를 호출하도록 변경하여 <strong>최초 로딩 시간을 1분 → 10초 이내로 단축</strong>',
+              '비동기 데이터 로딩 방식 적용 및 Skeleton UI 추가로 <strong>사용자 경험 향상</strong>',
             ],
             tech: ['React.js', 'TypeScript', 'React-Query', 'GraphQL'],
           },
@@ -145,43 +143,32 @@ export const experience: Company[] = [
     ],
     projects: [
       {
-        name: '방구석연구소',
-        period: '2022.07 ~ 2022.12',
-        description:
-          '방구석에서 시작하는 "나" 연구소! 다양한 디바이스에서 서비스되는 심리테스트/웹게임을 개발하였습니다.',
-        link: {
-          label: 'banggooso.com',
-          href: 'https://www.banggooso.com/',
-        },
+        description: [
+          '다양한 디바이스에서 서비스되는 심리테스트/웹게임의 프론트엔드 개발을 담당하였습니다.',
+          '반응형 디자인에 능숙하고 웹접근성을 준수하여 개발하였습니다.',
+        ],
         tasks: [
           {
-            text: '17개의 프로젝트 완성, 평균 13만명의 이용자 기록',
+            text: '심리테스트/웹게임 개발 및 퍼블리싱',
+            subItems: [
+              '17개의 프로젝트 완성',
+              '평균 13만명의 이용자 기록',
+              '다양한 디바이스에서 서비스되는 심리테스트/웹게임 개발 및 퍼블리싱',
+            ],
+            tech: ['JavaScript', 'CSS', 'HTML', 'React'],
           },
           {
-            text: '다양한 디바이스에서 서비스되는 심리테스트/웹게임 개발 및 퍼블리싱',
+            text: '2022 밈어워즈',
+
+            subItems: [
+              '2022년 한 해 동안 유행했던 밈 중 최고의 밈을 선정하는 페이지를 개발하였습니다.',
+              'async/await, Promise를 통한 비동기적 Javascript',
+              '다양한 커스텀 React Hooks',
+              'CSS in JS(styled-component), CSS 작성을 통한 모바일 웹뷰 최적화',
+            ],
+            tech: ['JavaScript', 'React', 'styled-component', 'CSS'],
           },
         ],
-        tech: ['JavaScript', 'CSS', 'HTML', 'React'],
-      },
-      {
-        name: '2022 밈어워즈',
-        period: '2022.11 ~ 2022.12',
-        description:
-          '2022년 한 해 동안 유행했던 밈 중 최고의 밈을 선정하는 페이지를 개발하였습니다.',
-        link: {
-          label: '배포 링크',
-          href: 'https://www.banggooso.com/ms/meme-awards/2022/',
-        },
-        tasks: [
-          {
-            text: 'async/await, Promise를 통한 비동기적 JavaScript 처리',
-          },
-          { text: '다양한 커스텀 React Hooks 구현 및 활용' },
-          {
-            text: 'CSS in JS(styled-component), CSS 작성을 통한 모바일 웹뷰 최적화',
-          },
-        ],
-        tech: ['ReactJS', 'styled-component', 'CSS', 'Firebase'],
       },
     ],
   },

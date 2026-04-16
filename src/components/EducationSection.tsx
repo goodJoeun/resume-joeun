@@ -10,7 +10,7 @@ export function EducationSection({ items }: Props) {
       {items.map((item) => (
         <div key={`${item.school}-${item.period}`}>
           <h3 className="text-base font-semibold">{item.school}</h3>
-          <p className="mt-1 text-sm text-muted">
+          <p className="mt-1 text-sm text-foreground">
             {item.degree} | {item.period}
             {item.note && ` (${item.note})`}
           </p>

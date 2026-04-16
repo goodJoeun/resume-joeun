@@ -16,7 +16,7 @@ export function SiteNav() {
         {links.map((l) => (
           <li key={l.href}>
             <a
-              className="text-muted transition-colors hover:text-foreground"
+              className="text-foreground transition-colors hover:text-foreground"
               href={l.href}
             >
               {l.label}
