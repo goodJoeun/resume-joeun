@@ -6,15 +6,16 @@ type Props = {
 
 export function TechStackSection({ items }: Props) {
   return (
-    <div className="space-y-8">
+    <ul className="grid gap-4 sm:grid-cols-2">
       {items.map((item) => (
-        <div key={item.category}>
-          <h3 className="mb-2 text-base font-semibold">{item.category}</h3>
-          <p className="max-w-2xl text-sm leading-relaxed text-foreground">
-            {item.description}
-          </p>
-        </div>
+        <li
+          key={item.category}
+          className="rounded-xl border border-border/60 bg-section-bg/40 p-4 transition-shadow hover:shadow-md hover:shadow-black/[0.04] dark:hover:shadow-black/30"
+        >
+          <h3 className="text-sm font-semibold text-foreground">{item.category}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

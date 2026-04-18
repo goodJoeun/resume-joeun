@@ -13,6 +13,10 @@ export type TaskItem = {
 
 export type ProjectDetail = {
   name?: string;
+  /** 카드에 표시할 짧은 제목 (없으면 name 사용) */
+  cardTitle?: string;
+  /** 카드 앞면에 보여줄 요약 불릿 (없으면 설명·역할·업무에서 자동 추출) */
+  cardSummary?: string[];
   period?: string;
   description?: string | string[];
   link?: { label: string; href: string };
@@ -26,6 +30,7 @@ export type CompanyRole = {
   period: string;
 };
 
+/** 한 회사(경력) 단위. `projects`의 각 원소가 UI에서 카드 패널 하나에 대응합니다. */
 export type Company = {
   name: string;
   period: string;
@@ -56,6 +61,7 @@ export type EducationItem = {
 
 export const profile: Profile = {
   nameKo: '조은',
+  role: '프론트엔드 개발자',
   intro: [
     '저는 사용자 경험에 집착하며, "좋은 코드"로 팀 전체의 생산성을 극대화하는 개발자입니다.',
     '제가 생각하는 "좋은 코드"는 우수한 사용자 경험을 전제로, 재사용성이 높고 유지보수에 적은 비용이 들며, 협업을 용이하게 하는 코드입니다.',
@@ -78,10 +84,16 @@ export const experience: Company[] = [
     ],
     projects: [
       {
+        name: 'E2E 테스트 구축 및 자동화',
+        cardSummary: [
+          'Playwright 기반 E2E 자동화 파이프라인',
+          '테스트코드 220개+ 유지보수',
+          '전수 테스트 2시간 → 30분(약 75% 단축)',
+        ],
         description: [
           '스패로우 엔터프라이즈는 DevSecOps 구축을 도와주는 웹 기반 Application입니다.',
           '백엔드로부터 제공받는 데이터를 시각화하고 최적의 UX를 제공하고 있습니다.',
-          '또한, 디자인 시스템을 관리하고 컴포넌트 UI 테스트/E2E 테스트 자동화 구축도 담당하고 있습니다',
+          '디자인 시스템을 관리하고 컴포넌트 UI 테스트/E2E 테스트 자동화 구축을 담당했습니다.',
         ],
         roles: [
           '소프트웨어 품질/보안 검증을 위한 제품의 프론트엔드 개발',
@@ -99,6 +111,19 @@ export const experience: Company[] = [
             ],
             tech: ['TypeScript', 'Next.js', 'Playwright', 'Cursor'],
           },
+        ],
+      },
+      {
+        name: 'App Router로의 마이그레이션',
+        cardSummary: [
+          'Page Router → App Router 부분 마이그레이션',
+          'Emotion → Tailwind CSS 스타일 전환',
+          'FCP 60% 개선, TBT 최적화',
+        ],
+        description: [
+          '스패로우 엔터프라이즈 제품의 프론트엔드 아키텍처를 App Router 기반으로 전환하고 성능을 개선했습니다.',
+        ],
+        tasks: [
           {
             text: 'App Router로의 마이그레이션',
             subItems: [
@@ -109,6 +134,19 @@ export const experience: Company[] = [
             ],
             tech: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'EmotionJS'],
           },
+        ],
+      },
+      {
+        name: 'SSO/OTP 인증 모듈 개발',
+        cardSummary: [
+          '고객사 맞춤 인증 모듈 설계·구현',
+          'Http Header·토큰 기반 로그인',
+          'Passport.js 전략·다중 인증 흐름',
+        ],
+        description: [
+          '고객사 내부망·보안 요구에 맞춰 SSO/OTP 인증 흐름을 프론트엔드에서 연동했습니다.',
+        ],
+        tasks: [
           {
             text: 'SSO/OTP 인증 모듈 개발',
             subItems: [
@@ -119,6 +157,19 @@ export const experience: Company[] = [
             ],
             tech: ['TypeScript', 'Next.js', 'GraphQL'],
           },
+        ],
+      },
+      {
+        name: '파일 디렉토리 컴포넌트 개발',
+        cardSummary: [
+          '표 기반 UI → 트리형 파일 디렉터리',
+          '최초 로딩 1분 → 10초 이내',
+          'Skeleton·비동기 로딩으로 UX 개선',
+        ],
+        description: [
+          '대용량 분석 데이터를 탐색하기 쉽도록 파일 트리 UI와 지연 로딩을 적용했습니다.',
+        ],
+        tasks: [
           {
             text: '파일 디렉토리 컴포넌트 개발',
             subItems: [
@@ -143,6 +194,12 @@ export const experience: Company[] = [
     ],
     projects: [
       {
+        name: '심리테스트 · 웹게임',
+        cardSummary: [
+          '모바일·웹뷰 대응 심리테스트 및 웹게임 퍼블리싱',
+          '17개 프로젝트 · 누적 약 13만 이용',
+          '반응형·웹접근성 고려 개발',
+        ],
         description: [
           '다양한 디바이스에서 서비스되는 심리테스트/웹게임의 프론트엔드 개발을 담당하였습니다.',
           '반응형 디자인에 능숙하고 웹접근성을 준수하여 개발하였습니다.',
@@ -157,9 +214,21 @@ export const experience: Company[] = [
             ],
             tech: ['JavaScript', 'CSS', 'HTML', 'React'],
           },
+        ],
+      },
+      {
+        name: '2022 밈어워즈',
+        cardSummary: [
+          '연간 밈 투표·랭킹 페이지 개발',
+          'async/await·커스텀 Hooks',
+          'styled-component·모바일 웹뷰 최적화',
+        ],
+        description: [
+          '2022년 한 해 동안 유행했던 밈 중 최고의 밈을 선정하는 이벤트 페이지를 개발하였습니다.',
+        ],
+        tasks: [
           {
             text: '2022 밈어워즈',
-
             subItems: [
               '2022년 한 해 동안 유행했던 밈 중 최고의 밈을 선정하는 페이지를 개발하였습니다.',
               'async/await, Promise를 통한 비동기적 Javascript',

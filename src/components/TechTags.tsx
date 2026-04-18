@@ -9,7 +9,7 @@ export function TechTags({ items }: Props) {
       {items.map((t) => (
         <li
           key={t}
-          className="rounded-md bg-tag-bg px-2.5 py-1 text-xs font-medium text-tag-text"
+          className="rounded-full border border-border/50 bg-tag-bg/90 px-3 py-1 text-xs font-medium text-tag-text"
         >
           {t}
         </li>
